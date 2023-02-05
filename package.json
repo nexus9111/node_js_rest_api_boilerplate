@@ -1,0 +1,35 @@
+{
+  "name": "nodejs_boilerplate_rest_api",
+  "version": "1.0.0",
+  "description": "🚀 This is all you need as a NodeJS rest API simple and secure boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
+    "prod": "NODE_ENV=production node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nexus9111/nodejs_boilerplate_rest_api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nexus9111/nodejs_boilerplate_rest_api/issues"
+  },
+  "homepage": "https://github.com/nexus9111/nodejs_boilerplate_rest_api#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv-safe": "^8.2.0",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "express-ip": "^1.0.4",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^6.0.1",
+    "mongoose": "^6.9.0",
+    "nodemon": "^2.0.20",
+    "winston": "^3.8.2"
+  }
+}
