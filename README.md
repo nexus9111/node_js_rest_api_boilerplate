@@ -1,7 +1,9 @@
 # nodejs_boilerplate_rest_api
+
 🚀 This is all you need as a NodeJS rest API simple and secure boilerplate
 
 ## ℹ️ Informations
+
 This api include:
 
 - 📝 Loggers (winston)
@@ -12,7 +14,18 @@ This api include:
 - ✨ Structured api
 Basic register/login route are implemented to show how to use the api.
 
+## 🔎 Requirements
+
+- NodeJS installed
+- MongoDB database running on your machine
+    - You can install it <a href="https://www.mongodb.com/docs/manual/administration/install-community/">here</a>
+    - Or run it thanks to my docker compose with command: 
+    ```console
+    docker-compose build; docker-compose up -d
+    ```
+
 ## 🛠 Installation
+
 ```console
 $ git clone git@github.com:nexus9111/nodejs_boilerplate_rest_api.git
 $ cd nodejs_boilerplate_rest_api
@@ -29,6 +42,7 @@ $ npm i
 ```
 
 ## 🚀 Run
+
 Basic run:
 
 ```console
