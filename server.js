@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.use("/api", exampleRouter);
+app.use("/api/v1", exampleRouter);
 
 app.use((error, req, res, next) => {
     statusCode = req.statusCode || 500;
