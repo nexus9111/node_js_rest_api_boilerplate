@@ -1,5 +1,5 @@
-let paths = new Set(["/", "/api"]);
+const logger = require('../config/logger');
 
-exports.isAuthorizedRoute = (req) => {
-    return (paths.has("/"+req.originalUrl.split("/")[1]));
+exports.log = (req) => {
+    logger.debug(`${req.ipAddress} called route (${req.method}) => ${req.originalUrl}`);
 };

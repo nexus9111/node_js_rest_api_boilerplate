@@ -16,12 +16,8 @@ app.all("*", function (req, res, next) {
     try {
         let ipAddress = req.ipInfo.ip.slice(0, 7) == "::ffff:" ? req.ipInfo.ip.slice(7) : req.ipInfo.ip;
         if (!BLACKLIST.includes(ipAddress)) {
-            if (!routerUtils.isAuthorizedRoute(req)) {
-                req.statusCode = 400;
-                throw new Error("Route does not exist");
-            } 
             req.ipAddress = ipAddress;
-            logger.debug(`${req.ipAddress} called route (${req.method}) => ${req.originalUrl}`);
+            routerUtils.log(req);
             next();
         } else {
             req.statusCode = 403;
