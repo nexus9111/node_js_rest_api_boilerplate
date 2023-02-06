@@ -2,11 +2,11 @@
   "name": "nodejs_boilerplate_rest_api",
   "version": "1.0.0",
   "description": "🚀 This is all you need as a NodeJS rest API simple and secure boilerplate",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=development node index.js",
-    "dev": "NODE_ENV=development nodemon index.js",
-    "prod": "NODE_ENV=production node index.js",
+    "start": "NODE_ENV=development node server.js",
+    "dev": "NODE_ENV=development nodemon server.js",
+    "prod": "NODE_ENV=production node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
