@@ -10,6 +10,8 @@ const exampleRouter = require("./router/mainRouter");
 
 if (USE_DATABASE) {
     mongo.connect();
+} else {
+    logger.info("Database disabled");
 }
 
 app.all("*", function (req, res, next) {
