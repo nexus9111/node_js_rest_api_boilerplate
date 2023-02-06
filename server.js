@@ -16,7 +16,7 @@ if (USE_DATABASE) {
 
 app.all("*", function (req, res, next) {
     try {
-        let ipAddress = req.ipInfo.ip.slice(0, 7) == "::ffff:" ? req.ipInfo.ip.slice(7) : req.ipInfo.ip;
+        let ipAddress = req.ipInfo.ip.slice(0, 7) === "::ffff:" ? req.ipInfo.ip.slice(7) : req.ipInfo.ip;
         if (!BLACKLIST.includes(ipAddress)) {
             req.ipAddress = ipAddress;
             routerUtils.log(req);
@@ -46,7 +46,7 @@ app.use("/api/v1", exampleRouter);
 
 app.use((error, req, res, next) => {
     statusCode = req.statusCode || 500;
-    if (statusCode == 500) {
+    if (statusCode === 500) {
         logger.error(error.toString());
     }
     res.status(statusCode).json({
