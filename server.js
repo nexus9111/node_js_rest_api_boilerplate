@@ -6,7 +6,6 @@ const logger = require("./config/logger");
 
 const routerUtils = require("./utils/routerUtils");
 
-const exampleRouter = require("./router/mainRouter");
 
 if (USE_DATABASE) {
     mongo.connect();
@@ -41,8 +40,13 @@ app.get("/", (req, res) => {
     });
 });
 
+const routes = [
+    { "path": "/api/v1", "router": require("./router/mainRouter") },
+];
 
-app.use("/api/v1", exampleRouter);
+for (const route of routes) {
+    app.use(route.path, route.router);
+}
 
 app.use((error, req, res, next) => {
     statusCode = req.statusCode || 500;
