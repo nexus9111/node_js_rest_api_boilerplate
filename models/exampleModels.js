@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const genders = ["h", "f"]
+const genders = ["h", "f"];
 
 const exampleSchema = new mongoose.Schema({
     name: {

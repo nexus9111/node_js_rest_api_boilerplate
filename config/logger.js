@@ -1,16 +1,18 @@
-const winston = require('winston');
+const winston = require("winston");
+const { SERVICE_NAME } = require("./variables");
 
-winston.level = 'debug';
+winston.level = "debug";
 const logger = winston.createLogger({
 
-    level: 'debug',
+    level: "debug",
     format: winston.format.combine(
         winston.format.timestamp(),
         winston.format.json()
     ),
+    defaultMeta: { service: SERVICE_NAME },
     transports: [
         new winston.transports.Console(),
-    ],
+    ], 
 });
 
 module.exports = logger;

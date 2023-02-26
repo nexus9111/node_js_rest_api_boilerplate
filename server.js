@@ -1,8 +1,8 @@
-const { USE_DATABASE, PORT, ENV, BLACKLIST } = require('./config/vars');
+const { USE_DATABASE, PORT, ENV, BLACKLIST } = require("./config/variables");
 
 const app = require("./config/express");
 const mongo = require("./config/mongo");
-const logger = require('./config/logger');
+const logger = require("./config/logger");
 
 const routerUtils = require("./utils/routerUtils");
 
@@ -62,7 +62,7 @@ app.listen(PORT, () => {
         "port": PORT,
         "blacklist ips": BLACKLIST,
         "url": `http://localhost:${PORT}`
-    })
+    });
 });
 
 
