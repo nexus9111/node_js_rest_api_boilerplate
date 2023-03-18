@@ -1,6 +1,7 @@
 # nodejs_boilerplate_rest_api
 
-🚀 This is all you need as a NodeJS rest API simple and secure boilerplate
+🚀 This is all you need as a NodeJS rest API simple and secure boilerplate.
+I wanted to create something simple and easy to use for my future projects. I hope you will like it and that it will help you.
 
 ## ℹ️ Informations
 
@@ -12,8 +13,8 @@ This api include:
 - 🛡 High level of protection (HTTP headers, anti-dos, ip filter, protected routes)
 - 🔀 Express routing
 - ✨ Structured api
-- 🧪 Tests implemented
-- 🔐 JWT authentication with register and login/routes/profile/delete
+- 🧪 Tests with Jest
+- 🔐 JWT authentication with register, login, profile and delete routes
 
 ## 🔎 Requirements
 
@@ -39,6 +40,7 @@ if `easy-install.sh` does not work:
 ```console
 $ cp .env.example .env.development
 $ cp .env.example .env.production
+$ cp .env.example .env.test
 $ npm i
 ```
 
@@ -68,4 +70,4 @@ $ npm run test
 ## ✒️ License:
 
 - Author: Joss C
-- Last update: 18/03/2022
+- Last update: 18/03/2022 (DD/MM/YYYY)
