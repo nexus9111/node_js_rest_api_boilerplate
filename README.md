@@ -8,11 +8,12 @@ This api include:
 
 - 📝 Loggers (winston)
 - 📚 MongoDB database
-- 🪞 PROD and DEV environment
+- 🪞 PROD, DEV and TEST environment
 - 🛡 High level of protection (HTTP headers, anti-dos, ip filter, protected routes)
 - 🔀 Express routing
 - ✨ Structured api
-Basic register/login route are implemented to show how to use the api.
+- 🧪 Tests implemented
+- 🔐 JWT authentication with register and login/routes/profile/delete
 
 ## 🔎 Requirements
 
@@ -56,7 +57,15 @@ $ npm run dev
 $ npm run prod
 ```
 
+## 🧪 Tests
+
+```console
+$ npm run test
+```
+
+**Note:** You can check test coverage with `npm run coverage`. It's recommended to have at least 70% of coverage when you push your code to make sure that your code is working in the future and that you don't break anything. I recommend you to do tests for each new feature you add to your code.
+
 ## ✒️ License:
 
 - Author: Joss C
-- Last update: 05/02/2022
+- Last update: 18/03/2022

@@ -1,22 +1,68 @@
-const getConnectedUser = async (req) => {
-    try {
-        // get the user from your db
-        req.connectedUser = {}; // replace this with your user
-        return; // success
-    } catch (error) {
-        throw error;
-    }
+const passwordValidator = require("password-validator");
+const jwt = require("jsonwebtoken");
+
+const { JWT_SECRET } = require("../config/variables");
+const logger = require("../config/logger");
+const errors = require("../config/errors");
+
+const User = require("../models/userModels");
+
+const responseUtils = require("../utils/apiResponseUtils");
+
+
+let schema = new passwordValidator();
+
+schema
+    .is().min(8)                                    // Minimum length 8
+    .is().max(100)                                  // Maximum length 100
+    .has().uppercase()                              // Must have uppercase letters
+    .has().lowercase()                              // Must have lowercase letters
+    .has().digits()                                 // Must have digits
+    .has().not().spaces()                           // Should not have spaces
+    .is().not().oneOf(["Passw0rd", "Password123"]); // Blacklist these values
+
+exports.isPasswordValid = (password) => {
+    return schema.validate(password);
 };
 
-exports.authorize = (roles = []) => async (req, res, next) => {
+const getConnectedUser = async (req) => {
+    let decoded;
+
+    let token = req.headers.authorization;
+    if (!token) {
+        responseUtils.errorResponse(req, errors.errors.UNAUTHORIZED, "missing token");
+    };
+
+    try {
+        token = token.split(" ")[1];
+        decoded = jwt.verify(token, JWT_SECRET);
+        if (!decoded) {
+            throw new Error("invalid token");
+        }
+    } catch {
+        responseUtils.errorResponse(req, errors.errors.UNAUTHORIZED, "invalid token");
+    }
+
+    let now = new Date();
+    if (now > decoded.expires) {
+        responseUtils.errorResponse(req, errors.errors.UNAUTHORIZED, "token expired");
+    }
+
+    let user = await User.findOne({ id: decoded.id }).select("-__v -_id");
+
+    if (!user) {
+        responseUtils.errorResponse(req, errors.errors.UNAUTHORIZED, "user with given token not found");
+    }
+
+    // store user in request for later use
+    req.connectedUser = user;
+};
+
+exports.authenticate = async (req, res, next) => {
     try {
         await getConnectedUser(req);
-        // you can now access the user from req.connectedUser
-        // you can do all verifications you want here
-        // you can also check if the user has the right role
-        // if not, throw an error like : throw new Error("You are not allowed to access this route");
         next();
-    } catch(error) {
+    } catch (error) {
         next(error);
     }
 };

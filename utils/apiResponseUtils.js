@@ -1,4 +1,3 @@
-const { $where } = require("../models/exampleModels");
 const routerUtils = require("./routerUtils");
 
 // this will throw an error that will be caught by the error handler
