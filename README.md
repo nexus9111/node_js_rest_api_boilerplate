@@ -1,4 +1,9 @@
-# nodejs_boilerplate_rest_api
+<div align="center">
+    <img src="./git-assets/node-boilerplate-logo.png" width="300">
+</div>
+
+
+# NodeJS rest api boilerplate
 
 🚀 This is all you need as a NodeJS rest API simple and secure boilerplate.
 I wanted to create something simple and easy to use for my future projects. I hope you will like it and that it will help you.
