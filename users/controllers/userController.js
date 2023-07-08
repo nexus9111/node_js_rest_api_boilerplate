@@ -2,14 +2,14 @@ const validator = require("email-validator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const { JWT_SECRET } = require("../config/variables");
-const logger = require("../config/logger");
-const errors = require("../config/errors");
+const { JWT_SECRET } = require("../../config/variables");
+const logger = require("../../config/logger");
+const errors = require("../../config/errors");
 
 const User = require("../models/userModels");
 
-const securityUtils = require("../utils/securityUtils");
-const responseUtils = require("../utils/apiResponseUtils");
+const securityUtils = require("../../utils/securityUtils");
+const responseUtils = require("../../utils/apiResponseUtils");
 
 const SALT_ROUNDS = 10;
 

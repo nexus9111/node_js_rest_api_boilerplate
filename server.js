@@ -17,7 +17,7 @@ app.listen(PORT, () => {
     logger.info(`Application running in ${ENV} mode`, {
         "port": PORT,
         "blacklist ips": BLACKLIST,
-        "url": `http://localhost:${PORT}`
+        "url": `http://localhost:${PORT}`,
     });
 });
 

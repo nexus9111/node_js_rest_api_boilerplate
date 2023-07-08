@@ -3,17 +3,26 @@ services:
   mongo:
     image: mongo
     container_name: boilerplate-mongo
+    networks:
+      - boilerplate-network-private
     volumes:
       - mongodb:/data/db
-    ports:
-      - "27017:27017"
 
   api:
     container_name: boilerplate-api
-    build: .
+    networks:
+      - boilerplate-network-private
+    build: 
+      context: .
+      dockerfile: Dockerfile.prod
     ports:
       - "3000:3000"
     depends_on:
       - mongo
+
 volumes:
   mongodb:
+
+networks:
+  boilerplate-network-private:
+    driver: bridge

@@ -23,13 +23,8 @@ This api include:
 
 ## 🔎 Requirements
 
-- NodeJS installed
-- MongoDB database running on your machine
-    - You can install it <a href="https://www.mongodb.com/docs/manual/administration/install-community/">here</a>
-    - Or run it thanks to my docker compose with command: 
-    ```console
-    docker-compose build; docker-compose up -d
-    ```
+- 📦 docker 
+- 📦 docker-compose
 
 ## 🛠 Installation
 
@@ -46,7 +41,6 @@ if `easy-install.sh` does not work:
 $ cp .env.example .env.development
 $ cp .env.example .env.production
 $ cp .env.example .env.test
-$ npm i
 ```
 
 ## 🚀 Run
@@ -55,22 +49,19 @@ Basic run:
 
 ```console
 # Run with dev env:
-$ npm start
-
-# Run with autoreload dev env:
-$ npm run dev
+$ docker-compose up -d
 
 # Run with prod env:
-$ npm run prod
+$ docker-compose -f docker-compose.prod.yml up -d
 ```
 
 ## 🧪 Tests
 
 ```console
-$ npm run test
+$ docker-compose -f docker-compose.test.yml up -d --build; docker logs -f boilerplate-api
 ```
 
-**Note:** You can check test coverage with `npm run coverage`. It's recommended to have at least 70% of coverage when you push your code to make sure that your code is working in the future and that you don't break anything. I recommend you to do tests for each new feature you add to your code.
+**Note:** It's recommended to have at least 70% of coverage when you push your code to make sure that your code is working in the future and that you don't break anything. I recommend you to do tests for each new feature you add to your code.
 
 ## ✒️ License:
 

@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
 });
 
 const routes = [
-    { "path": "/api/v1/users", "router": require("./router/userRouter") },
+    { "path": "/api/v1/users", "router": require("./users/router/userRouter") },
 ];
 
 for (const route of routes) {
@@ -42,7 +42,7 @@ for (const route of routes) {
 }
 
 app.use((error, req, res, next) => {
-    statusCode = req.statusCode || 500;
+    let statusCode = req.statusCode || 500;
     if (statusCode === 500) {
         /* istanbul ignore next */
         logger.error(error.toString());
