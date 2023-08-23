@@ -16,7 +16,7 @@ jobs:
       run: sudo docker run -d -p 27017:27017 mongo:latest
     - name: Install Dependencies
       run: npm install
-    - name: Run tests and collect coverage
+    - name: Run tests coverage
       run: npm run coverage
     - name: Upload coverage reports to Codecov with GitHub Action
       uses: codecov/codecov-action@v3
