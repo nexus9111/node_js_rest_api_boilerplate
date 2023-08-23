@@ -1,0 +1,22 @@
+name: Coverage workflow
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Test python API
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Node ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16.13.2'
+    - name: Install Dependencies
+      run: npm install
+    - name: Run tests and collect coverage
+      run: NODE_ENV=test jest --coverage
+    - name: Upload coverage reports to Codecov with GitHub Action
+      uses: codecov/codecov-action@v3
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
