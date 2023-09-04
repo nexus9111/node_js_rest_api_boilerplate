@@ -5,7 +5,7 @@ const { JWT_SECRET } = require("../config/variables");
 const logger = require("../config/logger");
 const errors = require("../config/errors");
 
-const User = require("../users/models/userModels");
+const User = require("../models/userModels");
 
 const responseUtils = require("../utils/apiResponseUtils");
 

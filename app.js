@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
 });
 
 const routes = [
-    { "path": "/api/v1/users", "router": require("./users/router/userRouter") },
+    { "path": "/api/v1/users", "router": require("./router/userRouter") },
 ];
 
 for (const route of routes) {
